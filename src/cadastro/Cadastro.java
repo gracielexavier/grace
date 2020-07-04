@@ -5,6 +5,7 @@
  */
 package cadastro;
 
+import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,14 +19,18 @@ import javafx.stage.Stage;
 public class Cadastro extends Application {
     
     @Override
-    public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
-        
-        Scene scene = new Scene(root);
-        
-        stage.setScene(scene);
-        stage.show();
-    }
+        public void start(Stage primaryStage) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/MainView.fxml"));
+                Parent parent = loader.load();
+                Scene mainScene = new Scene(parent);
+                primaryStage.setScene(mainScene);
+                primaryStage.setTitle("Sample JavaFX application");
+                primaryStage.show();
+             } catch (IOException e) {
+                e.printStackTrace();
+             }
+        } 
 
     /**
      * @param args the command line arguments
