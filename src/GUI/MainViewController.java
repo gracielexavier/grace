@@ -1,15 +1,20 @@
 package GUI;
 
+import GUI.util.Alertas;
 import static GUI.util.Alertas.showAlert;
+import cadastro.Cadastro;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 
 /*
@@ -45,21 +50,28 @@ public class MainViewController implements Initializable{
     
     @FXML
     public void onMenuItemAboutAction(){
-        System.out.println("okhelp");
+        loadView("/GUI/About.fxml");
     }
     
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL uri, ResourceBundle rb) {
        
     }
     
-    private void loadView(String absoluteName) {
+    private synchronized void loadView(String absoluteName) {
       try{
         FXMLLoader loader = new FXMLLoader(getClass().getResource(absoluteName));
         VBox newVBox = loader.load();
+        Scene mainScene = Cadastro.getMainScene();
+        VBox mainVBox = (VBox) ((ScrollPane) mainScene.getRoot()).getContent();
+        
+        Node mainMenu = mainVBox.getChildren().get(0);
+        mainVBox.getChildren().clear();
+        mainVBox.getChildren().add(mainMenu);
+        mainVBox.getChildren().addAll(newVBox.getChildren());
       }
       catch (IOException e){
-          showAlert("IO Exception", "Error loading view", e.getMessage(),AlertType.ERROR);
+          Alertas.showAlert("IO Exception", "Error loading view", e.getMessage(),AlertType.ERROR);
       }
     }
 }

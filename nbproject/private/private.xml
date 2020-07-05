@@ -4,9 +4,13 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/55819/Documents/NetBeansProjects/Cadastro/src/cadastro/Cadastro.java</file>
+            <file>file:/C:/Users/55819/Documents/NetBeansProjects/Cadastro/src/GUI/About.fxml</file>
             <file>file:/C:/Users/55819/Documents/NetBeansProjects/Cadastro/src/GUI/MainView.fxml</file>
             <file>file:/C:/Users/55819/Documents/NetBeansProjects/Cadastro/src/cadastro/FXMLDocument.fxml</file>
+            <file>file:/C:/Users/55819/Documents/NetBeansProjects/Cadastro/src/GUI/util/Constraints.java</file>
             <file>file:/C:/Users/55819/Documents/NetBeansProjects/Cadastro/src/cadastro/FXMLDocumentController.java</file>
+            <file>file:/C:/Users/55819/Documents/NetBeansProjects/Cadastro/src/GUI/MainViewController.java</file>
+            <file>file:/C:/Users/55819/Documents/NetBeansProjects/Cadastro/src/GUI/util/Alertas.java</file>
         </group>
     </open-files>
 </project-private>
